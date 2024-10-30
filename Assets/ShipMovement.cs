@@ -7,6 +7,7 @@ public class ShipMovement : MonoBehaviour{
     public string left;
     public string right;
     public string fireWeapon;
+    ParticleSystem engineLeft, engineRight;
     public GameObject bullet;
 
     public Rigidbody2D rigidBody;
@@ -15,6 +16,8 @@ public class ShipMovement : MonoBehaviour{
 
     // Start is called before the first frame update
     void Start(){
+        engineLeft = GameObject.Find("LeftEngineEffect").GetComponent<ParticleSystem>();
+        engineRight = GameObject.Find("RightEngineEffect").GetComponent<ParticleSystem>();
         rigidBody = this.GetComponent<Rigidbody2D>();
     }
 
@@ -25,10 +28,16 @@ public class ShipMovement : MonoBehaviour{
 
         if(Input.GetKey(KeyCode.A)){
             this.transform.Translate(new Vector3(-5f, 0f, 0f) * Time.deltaTime * 1);
+            engineRight.Play();
+        }else{
+            engineRight.Stop();
         }
 
         if(Input.GetKey(KeyCode.D)){
             this.transform.Translate(new Vector3(5f, 0f, 0f) * Time.deltaTime * 1);
+            engineLeft.Play();
+        }else{
+            engineLeft.Stop();
         }
 
         if(Input.GetKey(KeyCode.RightControl)){
