@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Boarder
+  - BouncerLeft
+  - Bouncer
+  - Enemy
+  - ExplosionParticle
   layers:
   - Default
   - TransparentFX
