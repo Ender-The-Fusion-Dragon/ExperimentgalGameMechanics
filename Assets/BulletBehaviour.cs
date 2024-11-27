@@ -32,6 +32,8 @@ public class BulletBehaviour : MonoBehaviour{
             Destroy(collision.gameObject);
 
             Destroy(explosion.gameObject, 0.3F);
+
+            Debug.Log("hello");
         }
 
         Destroy(this.gameObject);

@@ -7,7 +7,13 @@ public class GameStateManager : MonoBehaviour{
     private int score;
 
     // Start is called before the first frame update
-    void Start(){}
+    void Start(){
+        DontDestroyOnLoad(this.gameObject);
+
+        if(FindObjectsOfType(this.GetType()).Length > 1){
+            Destroy(this.gameObject);
+        }
+    }
 
     // Update is called once per frame
     void Update(){}
