@@ -9,11 +9,11 @@ public class ShipMovement : MonoBehaviour{
     public string fireWeapon;
     ParticleSystem engineLeft, engineRight;
     public GameObject bullet;
-
+    public GameObject playerBarriers;
+    public float barrierCooldown;
     public Rigidbody2D rigidBody;
     public float previouslyFired;
     public float hasCollided;
-
     public bool disableMovement;
 
 
@@ -29,6 +29,7 @@ public class ShipMovement : MonoBehaviour{
     void Update(){
 
         GameObject tempBullet;
+        GameObject barriers;
 
         if(Input.GetKey(KeyCode.A) && disableMovement == false){
             this.transform.Translate(new Vector3(-5f, 0f, 0f) * Time.deltaTime * 1);
@@ -46,8 +47,16 @@ public class ShipMovement : MonoBehaviour{
 
         if(Input.GetKey(KeyCode.RightControl)){
             if(Time.time > previouslyFired + 1f){
-                tempBullet = Instantiate(bullet, this.transform.position +  (this.transform.up), this.transform.rotation);
+                tempBullet = Instantiate(bullet, this.transform.position + (this.transform.up), this.transform.rotation);
                 previouslyFired = Time.time;
+            }
+        }
+
+        if(Input.GetKey(KeyCode.W)){
+            if(Time.time > barrierCooldown + 10f){
+                barriers = Instantiate(playerBarriers);
+                Destroy(barriers, 2f);
+                barrierCooldown = Time.time;
             }
         }
 

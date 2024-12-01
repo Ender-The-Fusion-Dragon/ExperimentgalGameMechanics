@@ -9,6 +9,8 @@ TagManager:
   - Bouncer
   - Enemy
   - ExplosionParticle
+  - Bullet
+  - Asteroid
   layers:
   - Default
   - TransparentFX
