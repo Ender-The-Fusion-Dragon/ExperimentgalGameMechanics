@@ -241,7 +241,7 @@ PrefabInstance:
     - target: {fileID: 2986892884674374397, guid: d4f45f779efde714fa44313e9c9e3c7f,
         type: 3}
       propertyPath: moveTo
-      value: SampleScene
+      value: Level1
       objectReference: {fileID: 0}
     - target: {fileID: 2986892884674374397, guid: d4f45f779efde714fa44313e9c9e3c7f,
         type: 3}

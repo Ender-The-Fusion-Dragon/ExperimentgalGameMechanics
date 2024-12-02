@@ -27,6 +27,7 @@ public class ManageTimer : MonoBehaviour{
 
             if(timerMinutes == 0 && timerSeconds == 0){
                 SceneManager.LoadScene(moveTo);
+                Debug.Log("test");
             }
         }
     }
